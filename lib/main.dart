@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+List<int> values = [2, 2, 2, 2, 2, 2, 2, 2, 2];
+
 void main() {
   runApp(const MyApp());
 }
@@ -32,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.cyan,
       appBar: AppBar(
         title: Text(widget.title),
       ),
@@ -48,58 +51,47 @@ class IconGrid extends StatefulWidget {
 }
 
 class _IconGridState extends State<IconGrid> {
+  int turn = 0;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: const <Widget>[
-        TicToeCol(),TicToeCol(),TicToeCol()
-      ],
-    );
+    double boardwidth = MediaQuery.of(context).size.width;
+    return Container(
+        width: boardwidth,
+        height: boardwidth,
+        color: Colors.cyanAccent,
+        child: GridView.count(
+          crossAxisCount: 3,
+          padding: const EdgeInsets.all(16),
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 8,
+          children: List.generate(9, (index) {
+            return Container(
+              width: 100,
+              height: 100,
+              decoration: const BoxDecoration(color: Colors.blueGrey),
+              child: Center(
+                child: IconButton(
+                  icon: values[index] == 2
+                      ? const Icon(Icons.minimize)
+                      : values[index] == 0
+                          ? const Icon(Icons.circle_outlined)
+                          : const Icon(Icons.close),
+                  onPressed: () {
+                    setState(() {
+                      if (values[index] == 2) {
+                        values[index] = turn;
+                        if (turn == 1) {
+                          turn = 0;
+                        } else {
+                          turn = 1;
+                        }
+                      }
+                    });
+                  },
+                ),
+              ),
+            );
+          }),
+        ));
   }
 }
-
-
-
-class TicToeCol extends StatefulWidget {
-  const TicToeCol({super.key});
-
-  @override
-  State<TicToeCol> createState() => _TicToeColState();
-}
-
-class _TicToeColState extends State<TicToeCol> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: const <Widget>[TicToes(), TicToes(), TicToes()],
-    );
-  }
-}
-
-
-
-class TicToes extends StatefulWidget {
-  const TicToes({super.key});
-
-  @override
-  State<TicToes> createState() => _TicToesState();
-}
-
-class _TicToesState extends State<TicToes> {
-  bool toggle = true;
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          setState(() {
-            toggle = !toggle;
-          });
-        },
-        icon: toggle
-            ? const Icon(Icons.circle_outlined)
-            : const Icon(Icons.close));
-  }
-}
-
