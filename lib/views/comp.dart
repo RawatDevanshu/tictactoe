@@ -17,10 +17,10 @@ class _CompState extends State<Comp> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 44, 51, 51),
       appBar: AppBar(
-        title: const Text("Tic-Tac-Toe!!!"),
+        title: const Text("V/S Computer"),
         backgroundColor: const Color.fromARGB(255, 44, 51, 51),
       ),
-      body: null,
+      body: const GameMatrix(call:3),
     );
   }
 }

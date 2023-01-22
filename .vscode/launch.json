@@ -14,6 +14,12 @@
             "name": "tictactoe (profile mode)",
             "request": "launch",
             "type": "dart",
+            "flutterMode": "debug"
+        },
+        {
+            "name": "tictactoe (profile mode)",
+            "request": "launch",
+            "type": "dart",
             "flutterMode": "profile"
         },
         {

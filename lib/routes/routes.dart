@@ -6,6 +6,7 @@ import 'package:tictactoe/views/comp.dart';
 const String mainMenu = 'mainMenu';
 const String offline1v1 = 'offline1v1';
 const String comp = 'comp';
+const String rooms = 'online_rooms';
 
 Route<dynamic> controller(RouteSettings settings) {
   switch (settings.name) {

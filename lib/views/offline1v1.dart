@@ -17,7 +17,7 @@ class _Offline1v1State extends State<Offline1v1> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 44, 51, 51),
       appBar: AppBar(
-        title: const Text("Tic-Tac-Toe!!!"),
+        title: const Text("Offline 1v1"),
         backgroundColor: const Color.fromARGB(255, 44, 51, 51),
       ),
       body: const GameMatrix(call:2),
