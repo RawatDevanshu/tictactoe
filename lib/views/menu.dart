@@ -22,17 +22,6 @@ class MainMenu extends StatelessWidget {
                       textScaleFactor: 5,
                     ),
                   ),
-              const SizedBox(
-                height: 40,
-              ),
-              ElevatedButton(
-                  onPressed: (() {
-                    Navigator.pushNamed((context), route.comp);
-                  }),
-                  child: const Text(
-                    "V/S COMP",
-                    textScaleFactor: 5,
-                  )),
             ],
           ),
         ));

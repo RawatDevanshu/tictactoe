@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 List<int> values = [2, 2, 2, 2, 2, 2, 2, 2, 2];
 
 class GameMatrix extends StatefulWidget {
-  const GameMatrix({super.key, required this.call});
-  // call = 1 (for computer),2 (for 1v1 offline)
-  final int call;
-
+  const GameMatrix({super.key});
   @override
   State<GameMatrix> createState() => _GameMatrixState();
 }
@@ -14,14 +11,7 @@ class GameMatrix extends StatefulWidget {
 class _GameMatrixState extends State<GameMatrix> {
   @override
   Widget build(BuildContext context) {
-    if (widget.call == 2) {
       return Matrix();
-    } else {
-      return Text(
-        "under progress",
-        style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),
-      );
-    }
   }
 }
 
@@ -92,7 +82,8 @@ class _MatrixState extends State<Matrix> {
                       onPressed: () {
                         setState(() {
                           if (check == 1 || check == 0) {
-                          } else if (values[index] == 2) {
+                          } 
+                          else if (values[index] == 2) {
                             values[index] = turn;
                             if (turn == 1) {
                               turn = 0;

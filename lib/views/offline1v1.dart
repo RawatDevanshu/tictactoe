@@ -20,7 +20,7 @@ class _Offline1v1State extends State<Offline1v1> {
         title: const Text("Offline 1v1"),
         backgroundColor: const Color.fromARGB(255, 44, 51, 51),
       ),
-      body: const GameMatrix(call:2),
+      body: const GameMatrix(),
     );
   }
 }
